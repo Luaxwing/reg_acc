@@ -30,7 +30,11 @@
             session_start();
             if (isset($_SESSION['user'])) {
                 echo "歡迎光臨" . $_SESSION['user'];
-                echo "<a href='user/logout.php'class='btn btn-primary mx-2'>登出</a>";
+                ?>
+                <a href='user/logout.php'class='btn btn-primary mx-2'>登出</a>
+                <a href='user/member.php'class='btn btn-success mx-2'>會員中心</a>
+                <?php
+               
             } else {
                 ?>
                 <a href="user/reg.php" class="btn btn-primary mx-2">註冊</a>
