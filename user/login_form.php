@@ -41,7 +41,7 @@ if(isset($_SESSION['user'])){
 <hr>
 <h3>會員登入</h3>
 <br>
-<form action="login.php" method="POST" >
+<form action="login.php" method="post" >
 
 
 <div class="row d-flex col-auto">

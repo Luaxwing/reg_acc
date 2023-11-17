@@ -98,9 +98,9 @@ $id_= $user["id"];
 
 <br>
 <div>
-    <input type="submit" value="更新" class="btn btn-primary">
+    <input type="submit" value="更新" class="col-2 btn btn-primary">
     <input type="reset" value="重置" class="btn btn-primary">
-    <input type="buttom" value="撤銷" class="btn btn-primary">
+    <input type="buttom" value="撤銷" class="col-1 btn btn-danger" onclick="location.href='del_user.php?id=<?=$user['id']?>'">
 </div>
 
 
