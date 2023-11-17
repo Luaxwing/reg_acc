@@ -46,12 +46,12 @@ if(isset($_SESSION['user'])){
 
 <div class="row d-flex col-auto">
     <label for="" class="col-1" >帳號</label>
-    <input type="text" name="acc" id="" class="col-2">
+    <input type="text" name='acc' id="" class="col-2">
 </div>
 
 <div class="row d-flex col-auto">
     <label for="" class="col-1">密碼</label>
-    <input type="password" name="pw" id="" class="col-2">
+    <input type="password" name='pw' id="" class="col-2">
 </div>
 
 <br>

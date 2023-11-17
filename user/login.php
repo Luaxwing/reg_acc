@@ -1,11 +1,15 @@
 <?php 
-session_save_path("tmp");
-session_start();
+// session_save_path("tmp");
+// session_start();
+
+// include "session_start();"
+include_once("./include/connect.php");
+
 $acc=$_POST['acc'];
 $pw=$_POST['pw'];
 
-$dsn="mysql:host=localhost;charset=utf8;dbname=member";
-$pdo=new PDO($dsn,'root','');
+// $dsn="mysql:host=localhost;charset=utf8;dbname=member";
+// $pdo=new PDO($dsn,'root','');
 
 
 // $sql="select * from users where `acc` = '$acc' && `pw` = '$pw'";

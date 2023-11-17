@@ -1,6 +1,9 @@
 <?php 
-session_save_path("tmp");
-session_start();
+// session_save_path("tmp");
+// session_start();
+
+// include "session_start();"
+include_once("./include/connect.php");
 ?>
 
 <!DOCTYPE html>
@@ -26,32 +29,35 @@ session_start();
             </ul>
         </div>
         <div class="nav-item col-4">
-            <?php
 
-            
-            if (isset($_SESSION['user'])) {
-                echo "歡迎光臨" . $_SESSION['user'];
-                ?>
-                <a href='user/logout.php'class='btn btn-primary mx-2'>登出</a>
-                <a href='user/member.php'class='btn btn-success mx-2'>會員中心</a>
-                <?php
-               
-            } else {
-                ?>
-                <a href="user/reg.php" class="btn btn-primary mx-2">註冊</a>
-                <a href="user/login_form.php" class="btn btn-success mx-2">登入</a>
-            <?php } ?>
+                <a href='logout.php'class='btn btn-primary mx-2'>登出</a>
+                <a href='member.php'class='btn btn-success mx-2'>會員中心</a>
+
         </div>
 
     </header>
     <div class="container">
                 <h1>使用者資料</h1>
 
+
+                <?php
+if (isset($_SESSION['msg'])) {
+    echo "<p style=color:blue;>".$_SESSION['msg']."</p>";
+}
+                ?>
+
 <?php
-$dsn="mysql:host=localhost;charset=utf8;dbname=member";
-$pdo=new PDO($dsn,'root','');
-$sql="select * from users where `acc` = '{$_SESSION['user']}} ";
+// $dsn="mysql:host=localhost;charset=utf8;dbname=member";
+// $pdo=new PDO($dsn,'root','');
+// $sql="select * from `users` where `acc` = '{$_SESSION['user']}' ";
 $user=$pdo->query($sql)->fetch();
+// print_r($user);
+
+// $acc=$user['acc'];
+// $pw=$user['pw'];
+// $name=$user['name'];
+// $email=$user['email'];
+$id_= $user["id"];
 
 ?>
 
@@ -68,25 +74,27 @@ $user=$pdo->query($sql)->fetch();
 
 <div class="row d-flex col-auto">
     <label for="" class="col-1" >帳號</label>
-    <input type="text" name="acc" id="" class="col-2" value="<?=$_POST['acc']?>">
+    <input type="text" name="acc" id="" class="col-2" value="<?=$user['acc']?>">
 </div>
 
 <div class="row d-flex col-auto">
     <label for="" class="col-1">密碼</label>
-    <input type="password" name="pw" id="" class="col-2" value="<?=$_POST['pw']?>">
+    <input type="password" name="pw" id="" class="col-2" value="<?=$user['pw']?>">
 </div>
 <div class="row d-flex col-auto">
     <label for="" class="col-1">姓名</label>
-    <input type="text" name="name" id="" class="col-2" value="<?=$_POST['name']?>">
+    <input type="text" name="name" id="" class="col-2" value="<?=$user['name']?>">
 </div>
 <div class="row d-flex col-auto">
     <label for="" class="col-1">電子郵件</label>
-    <input type="text" name="email" id="" class="col-2" value="<?=$_POST['email']?>">
+    <input type="text" name="email" id="" class="col-2" value="<?=$user['email']?>">
 </div>
 <div class="row d-flex col-auto">
     <label for="" class="col-1">居住地</label>
-    <input type="text" name="adress" id="" class="col-2" value="<?=$_POST['adress']?>">
+    <input type="text" name="address" id="" class="col-2" value="<?=$user['address']?>">
 </div>
+<input type="hidden" name="id" id="" class="col-2" value="<?=$user['id']?>">
+
 
 <br>
 <div>
